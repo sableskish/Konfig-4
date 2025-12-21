@@ -1,0 +1,60 @@
+|| Конфигурация веб-сервера
+app_name := [[MyWebServer]]
+
+server = {
+    name = !(app_name)
+    version = 1.2.0
+    host = [[0.0.0.0]]
+    port = 8080
+    workers = 4
+    timeout = 30.5
+    
+    (* Настройки SSL *)
+    ssl = {
+        enabled = true
+        cert_path = [[/etc/ssl/cert.pem]]
+        key_path = [[/etc/ssl/key.pem]]
+        protocols = { [[TLSv1.2]]. [[TLSv1.3]]. }
+    }
+    
+    routes = {
+        api = {
+            path = [[/api/*]]
+            methods = { [[GET]]. [[POST]]. [[PUT]]. }
+        }
+        static = {
+            path = [[/static/*]]
+            directory = [[/var/www/static]]
+        }
+    }
+    
+    headers = {
+        cors = [[*]]
+        cache_control = [[no-cache]]
+    }
+}
+
+|| Настройки базы данных
+database := {
+    host = [[localhost]]
+    port = 5432
+    name = [[webapp_db]]
+    pool = {
+        min_connections = 2
+        max_connections = 20
+        timeout = 10.0
+    }
+}
+
+db_config = !(database)
+
+|| Настройки логирования
+logging = {
+    level = [[DEBUG]]
+    file = [[/var/log/server.log]]
+    rotation = {
+        size = 10485760  || 10MB
+        backup_count = 5
+    }
+    formats = { [[json]]. [[text]]. }
+}

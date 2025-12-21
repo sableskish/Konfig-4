@@ -1,0 +1,84 @@
+{
+  "game": {
+    "title": "Space Adventures",
+    "version": 2.1,
+    "developer": "Cosmic Games",
+    "graphics": {
+      "resolution": [
+        1920,
+        1080
+      ],
+      "fullscreen": true,
+      "vsync": true,
+      "anti_aliasing": 4,
+      "shadow_quality": "high",
+      "texture_quality": "ultra",
+      "fps_limits": [
+        30,
+        60,
+        120
+      ]
+    },
+    "audio": {
+      "master_volume": 0.8,
+      "music_volume": 0.7,
+      "sfx_volume": 0.9,
+      "channels": 32,
+      "formats": [
+        "ogg",
+        "wav",
+        "mp3"
+      ]
+    },
+    "controls": {
+      "sensitivity": 2.5,
+      "invert_y": false,
+      "keybindings": {
+        "move_forward": "W",
+        "move_backward": "S",
+        "jump": "SPACE",
+        "interact": "E",
+        "inventory": "I"
+      }
+    },
+    "difficulty_preset": {
+      "easy": {
+        "enemy_health": 0.7,
+        "enemy_damage": 0.5,
+        "resources": 2.0
+      },
+      "normal": {
+        "enemy_health": 1.0,
+        "enemy_damage": 1.0,
+        "resources": 1.0
+      },
+      "hard": {
+        "enemy_health": 1.5,
+        "enemy_damage": 2.0,
+        "resources": 0.5
+      }
+    },
+    "achievements": {
+      "first_blood": {
+        "name": "First Blood",
+        "description": "Победить первого врага",
+        "reward": 100
+      },
+      "explorer": {
+        "name": "Explorer",
+        "description": "Посетить все локации",
+        "reward": 500
+      }
+    },
+    "multiplayer": {
+      "max_players": 4,
+      "port": 7777,
+      "regions": [
+        "eu",
+        "na",
+        "asia"
+      ],
+      "ping_timeout": 30.0
+    }
+  }
+}
